@@ -5,6 +5,7 @@ Chạy:
     streamlit run app.py
 """
 
+import re
 import time
 
 import gymnasium as gym
@@ -80,9 +81,15 @@ page = st.sidebar.radio(
 # Hàm tiện ích dùng chung
 # ============================================================
 
+def strip_ansi(text: str) -> str:
+    """Loại bỏ ANSI escape codes khỏi chuỗi."""
+    return re.sub(r"\x1b\[[0-9;]*m", "", text)
+
+
 def render_taxi_grid(env_render: str) -> None:
     """Hiển thị bản đồ Taxi-v3 trên giao diện."""
-    st.markdown(f'<div class="taxi-grid">{env_render}</div>', unsafe_allow_html=True)
+    clean = strip_ansi(env_render)
+    st.markdown(f'<div class="taxi-grid">{clean}</div>', unsafe_allow_html=True)
 
 
 def train_agent_with_progress(
