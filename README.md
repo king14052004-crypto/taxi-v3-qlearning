@@ -97,6 +97,7 @@ taxi-v3-qlearning/
 ├── evaluate.py                  # Script đánh giá agent đã huấn luyện
 ├── visualize.py                 # Script vẽ biểu đồ kết quả
 ├── compare_algorithms.py        # So sánh Q-Learning vs SARSA vs Random
+├── app.py                       # Giao diện web demo (Streamlit)
 │
 ├── notebook/
 │   └── taxi_v3_tutorial.ipynb   # Jupyter Notebook hướng dẫn từng bước
@@ -135,6 +136,19 @@ pip install -r requirements.txt
 ---
 
 ## Hướng dẫn sử dụng
+
+### 0. Giao diện Web Demo (Streamlit)
+
+```bash
+streamlit run app.py
+```
+
+Mở trình duyệt tại `http://localhost:8501` — giao diện web bao gồm:
+- **Giới thiệu**: Lý thuyết bài toán + công thức Q-Learning
+- **Huấn luyện**: Điều chỉnh hyperparameters và huấn luyện trực tiếp trên web
+- **Demo Agent**: Xem agent chơi game từng bước (animation trên bản đồ)
+- **Biểu đồ**: Reward, steps, epsilon decay, Q-table heatmap
+- **So sánh thuật toán**: Q-Learning vs SARSA vs Random Agent
 
 ### 1. Huấn luyện Agent
 
